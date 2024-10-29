@@ -13,7 +13,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    image: dmkdok/taski_backend
+    image: dmkdok/kittygram_backend
     env_file: .env
     volumes:
       - static:/backend_static
@@ -22,14 +22,14 @@ services:
       - db
 
   frontend:
-    image: dmkdok/taski_frontend
+    image: dmkdok/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-    image: dmkdok/taski_gateway
+    image: dmkdok/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
