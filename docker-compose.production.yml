@@ -17,16 +17,16 @@ services:
     env_file: .env
     volumes:
       - static:/backend_static
-      - media:/media
+      - media:/app/media/
     depends_on:
       - db
 
   frontend:
     image: dmkdok/kittygram_frontend
     env_file: .env
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static:/static
+      - static:/frontend_static
 
   gateway:
     image: dmkdok/kittygram_gateway
@@ -34,8 +34,8 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/static
-      - media:/media
+      - static:/staticfiles
+      - media:/app/media/
     depends_on:
       - backend
       - frontend
