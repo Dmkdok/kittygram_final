@@ -11,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '12345-secret-key')
 
 DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 if os.getenv('ADDITIONAL_HOSTS'):
     ALLOWED_HOSTS.extend(os.getenv('ADDITIONAL_HOSTS').split(','))
@@ -87,7 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-Ru'
 
 TIME_ZONE = 'UTC'
 
